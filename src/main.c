@@ -6,7 +6,18 @@
 /*   By: aakhtab <aakhtab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/07 18:21:14 by aakhtab           #+#    #+#             */
-/*   Updated: 2023/07/07 18:21:22 by aakhtab          ###   ########.fr       */
+/*   Updated: 2023/07/07 20:03:36 by aakhtab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <mlx.h>
+
+int	main(void)
+{
+	void	*mlx;
+    void	*win;
+
+    mlx = mlx_init();
+    win = mlx_new_window(mlx, 500, 500, "fractol");
+    mlx_loop(mlx);
+}
