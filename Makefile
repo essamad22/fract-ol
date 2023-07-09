@@ -6,7 +6,7 @@
 #    By: aakhtab <aakhtab@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/07 18:48:58 by aakhtab           #+#    #+#              #
-#    Updated: 2023/07/07 20:01:15 by aakhtab          ###   ########.fr        #
+#    Updated: 2023/07/08 01:13:39 by aakhtab          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,7 +38,7 @@ all:	${NAME}
 
 
 ${NAME}:	$(LIBFT) ${OBJS} header
-			make -C minilibx
+			@make -C minilibx
 			@$(CC) $(CFLAGS) $(SRCS) $(MINILIB) lib/libft.a -o $(NAME)
 
 
