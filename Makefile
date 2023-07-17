@@ -6,7 +6,7 @@
 #    By: aakhtab < aakhtab@student.1337.ma>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/07 18:48:58 by aakhtab           #+#    #+#              #
-#    Updated: 2023/07/16 11:44:40 by ezran            ###   ########.fr        #
+#    Updated: 2023/07/17 16:37:48 by aakhtab          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,7 @@ S1			= "========================================================================
 
 CC			=	cc
 
-SRCS			=	src/fractol.c src/draw.c
+SRCS			=	src/fractol.c src/draw.c src/fractals.c
 
 OBJS			=	$(SRCS:.c=.o)
 
