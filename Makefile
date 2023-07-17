@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: aakhtab <aakhtab@student.42.fr>            +#+  +:+       +#+         #
+#    By: aakhtab < aakhtab@student.1337.ma>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/07 18:48:58 by aakhtab           #+#    #+#              #
-#    Updated: 2023/07/08 01:13:39 by aakhtab          ###   ########.fr        #
+#    Updated: 2023/07/16 11:44:40 by ezran            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,18 +21,18 @@ S1			= "========================================================================
 
 CC			=	cc
 
-SRCS			=	src/main.c
+SRCS			=	src/fractol.c src/draw.c
 
 OBJS			=	$(SRCS:.c=.o)
 
-CFLAGS			=	-Wall -Wextra -Werror -I./lib/libft -I./minilibx
+CFLAGS			=	-Wall -Wextra -Werror 
 #-g -fsanitize=address
 
 NAME			=	fractol
 
 LIBFT		= lib/libft.a
 
-MINILIB = -Lmlx -lmlx -framework OpenGL -framework AppKit
+MINILIB = -L./minilibx -lmlx -framework OpenGL -framework AppKit
 
 all:	${NAME}
 
@@ -47,7 +47,7 @@ $(LIBFT)	:
 
 ##---- need to modier----------
 %.o	: %.c
-	@${CC} ${CFLAGS} -c $< -o $@
+	@${CC} ${CFLAGS} -Imlx -c $< -o $@
 ##-----------------------------
 
 header:
