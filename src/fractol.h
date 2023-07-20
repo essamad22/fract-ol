@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fractol.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aakhtab < aakhtab@student.1337.ma>         +#+  +:+       +#+        */
+/*   By: aakhtab <aakhtab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/12 17:40:49 by aakhtab           #+#    #+#             */
-/*   Updated: 2023/07/17 16:53:09 by aakhtab          ###   ########.fr       */
+/*   Updated: 2023/07/20 02:48:01 by aakhtab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@
 # include <stdlib.h>
 # include <unistd.h>
 
-# define WIDTH 1330
-# define HEIGHT 800
+# define WIDTH 900
+# define HEIGHT 700
 # define MAX_ITER 40
 
 typedef struct s_data
@@ -51,6 +51,7 @@ typedef struct s_fractol
 	t_complex	z;
 	double		x;
 	double		y;
+    unsigned int color;
 }				t_fractol;
 
 void    draw(t_mlx *mlx, int fractal);

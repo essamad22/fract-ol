@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aakhtab < aakhtab@student.1337.ma>         +#+  +:+       +#+        */
+/*   By: aakhtab <aakhtab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/12 21:49:11 by aakhtab           #+#    #+#             */
-/*   Updated: 2023/07/17 16:51:52 by aakhtab          ###   ########.fr       */
+/*   Updated: 2023/07/20 04:01:55 by aakhtab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ void	draw(t_mlx *mlx, int fractal)
     data.addr = mlx_get_data_addr(data.img, &data.bits_per_pixel,
             &data.line_length, &data.endian);
     f.y = -1;
+    f.color = 0x0000FF;
     while (++f.y < HEIGHT)
     {
         f.x = -1;

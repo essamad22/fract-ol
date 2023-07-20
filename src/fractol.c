@@ -6,7 +6,7 @@
 /*   By: aakhtab < aakhtab@student.1337.ma>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/16 12:10:19 by aakhtab           #+#    #+#             */
-/*   Updated: 2023/07/17 17:54:33 by aakhtab          ###   ########.fr       */
+/*   Updated: 2023/07/18 02:00:52 by aakhtab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,6 @@ int	main(int ac, char **av)
 	mlx.mlx = mlx_init();
 	mlx.mlx_win = mlx_new_window(mlx.mlx, WIDTH, HEIGHT, "FRACTOL");
 	draw(&mlx, fractal);
-    mlx_hook(mlx.mlx_win, 17, 0, close_window, &mlx);
+    //mlx_hook(mlx.mlx_win, 17, 0, close_window, &mlx);
 	mlx_loop(mlx.mlx);
 }
