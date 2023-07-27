@@ -6,7 +6,7 @@
 /*   By: aakhtab <aakhtab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/12 17:40:49 by aakhtab           #+#    #+#             */
-/*   Updated: 2023/07/20 02:48:01 by aakhtab          ###   ########.fr       */
+/*   Updated: 2023/07/27 11:30:09 by aakhtab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,15 @@
 # include <stdlib.h>
 # include <unistd.h>
 
-# define WIDTH 900
-# define HEIGHT 700
+# define WIDTH 550
+# define HEIGHT 500
 # define MAX_ITER 40
+
+# define MAIN_PAD_ESC		53
+# define MOUSE_SCROLL_UP	4
+# define MOUSE_SCROLL_DOWN	5
+# define ARROW_UP			126
+# define ARROW_DOWN			125
 
 typedef struct s_data
 {
@@ -41,21 +47,34 @@ typedef struct s_mlx
 
 typedef struct s_complex
 {
-	double		re;
-	double		im;
+	float		re;
+	float		im;
 }				t_complex;
 
 typedef struct s_fractol
 {
+	t_mlx		mlx;
+	t_data		data;
+	float		j_re;
+	float		j_im;
 	t_complex	c;
 	t_complex	z;
-	double		x;
-	double		y;
+	float		x;
+	float		y;
+	int 		fractal;
     unsigned int color;
+	float		zoom;
+	int 		test;
 }				t_fractol;
 
-void    draw(t_mlx *mlx, int fractal);
-void	my_mlx_pixel_put(t_data *data, int x, int y, int color);
-void    mandelbrot(t_fractol *f, t_data *data);
-void    julia(t_fractol *f, t_data *data);
+void    		draw(t_fractol *f);
+void			my_mlx_pixel_put(t_data *data, int x, int y, int color);
+void    		mandelbrot(t_fractol **f, t_data *data);
+void    		julia(t_fractol **f, t_data *data);
+unsigned int	get_color(int i);
+int 			key_press(int key, t_fractol *fractol);
+int 			mouse_press(int key, int x, int y, t_fractol *fractol);
+float	  		ft_atof(char *str);
+int 			close_window(void);
+// void    burning_ship(t_fractol *f, t_data *data);
 #endif

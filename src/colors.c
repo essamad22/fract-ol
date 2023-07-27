@@ -1,33 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fractals.c                                         :+:      :+:    :+:   */
+/*   colors.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aakhtab <aakhtab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/17 16:34:15 by aakhtab           #+#    #+#             */
-/*   Updated: 2023/07/20 04:19:22 by aakhtab          ###   ########.fr       */
+/*   Updated: 2023/07/25 12:55:24 by aakhtab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-void    mandelbrot(t_fractol *f, t_data *data)
+unsigned int    get_color(int i)
 {
-    int     i;
-    double  tmp;
+    unsigned int    color;
+    unsigned int    r;
+    unsigned int    g;
+    unsigned int    b;
+    double          t;
 
-    i = -1;
-    while (++i < MAX_ITER)
-    {
-        tmp = f->z.re;
-        f->z.re = f->z.re * f->z.re - f->z.im * f->z.im + f->c.re;
-        f->z.im = 2 * f->z.im * tmp + f->c.im;
-        if ((f->z.re * f->z.re + f->z.im * f->z.im) > 4000)
-            break ;
-    }
-    if (i == MAX_ITER)
-        my_mlx_pixel_put(data, f->x, f->y, 0x000000);
-    else
-        my_mlx_pixel_put(data, f->x, f->y, f->color);
+    color = 0;
+    t = (double)i / MAX_ITER;
+    r = 9 * (1 - t) * pow(t, 3) * 255;
+    g = 15 * pow((1 - t), 2) * pow(t, 2) * 255;
+    b = 8.5 * pow((1 - t), 3) * t * 255;
+    if (i < MAX_ITER)
+        color = (r << 16) + (g << 8) + b;
+    return (color);
 }
