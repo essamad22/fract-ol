@@ -6,7 +6,7 @@
 #    By: aakhtab <aakhtab@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/07 18:48:58 by aakhtab           #+#    #+#              #
-#    Updated: 2023/07/26 01:43:38 by aakhtab          ###   ########.fr        #
+#    Updated: 2023/07/28 17:14:52 by aakhtab          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,12 +22,11 @@ S1			= "========================================================================
 CC			=	cc
 
 SRCS			=	src/fractol.c src/draw.c src/colors.c \
-					src/mandelbrot.c src/julia.c src/events.c src/utils.c \
+					src/mandelbrot.c src/julia.c src/burningship.c src/events.c src/utils.c \
 					
 OBJS			=	$(SRCS:.c=.o)
 
-CFLAGS			=	-Wall -Wextra -Werror 
-#-g -fsanitize=address
+CFLAGS			=	-Wall -Wextra -Werror -g -fsanitize=address
 
 NAME			=	fractol
 

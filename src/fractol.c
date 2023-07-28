@@ -6,7 +6,7 @@
 /*   By: aakhtab <aakhtab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/16 12:10:19 by aakhtab           #+#    #+#             */
-/*   Updated: 2023/07/27 11:16:50 by aakhtab          ###   ########.fr       */
+/*   Updated: 2023/07/28 19:48:26 by aakhtab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,8 +82,10 @@ int	main(int ac, char **av)
 	f.data.addr = mlx_get_data_addr(f.data.img, &f.data.bits_per_pixel, 
 		&f.data.line_length, &f.data.endian);
 	mlx_hook(f.mlx.mlx_win, 2, 0, key_press, &f);
+	mlx_mouse_hook(f.mlx.mlx_win, mouse_press, &f);
     mlx_hook(f.mlx.mlx_win, 17, 0, close_window, &f);
 	f.zoom = 1;
+	set_bits(&f);
 	draw(&f);
 	mlx_loop(f.mlx.mlx);
 }

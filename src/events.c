@@ -6,7 +6,7 @@
 /*   By: aakhtab <aakhtab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 13:18:52 by aakhtab           #+#    #+#             */
-/*   Updated: 2023/07/27 14:42:15 by aakhtab          ###   ########.fr       */
+/*   Updated: 2023/07/28 19:58:08 by aakhtab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,28 @@
 
 int key_press(int key, t_fractol *fractol)
 {
-    // (void)fractol;
-    // fractol->zoom = 1;
+    int tmp;
+    
 	if (key == MAIN_PAD_ESC)
 		exit(0);
-    else if (key == ARROW_UP)
-        fractol->zoom *= 1.15;
-    else if (key == ARROW_DOWN)
-        fractol->zoom *= 0.15;
-    printf("zoom: %f\n", fractol->zoom);
+    else if (key == 8)
+    {
+        tmp = fractol->bits_16;
+        fractol->bits_16 = fractol->bits_8;
+        fractol->bits_8 = fractol->bits_0;
+        fractol->bits_0 = tmp;
+    }
+    else if (key == 49)
+    {
+        fractol->fractal++;
+        if (fractol->fractal == 2)
+        {
+            fractol->j_re = 0.285;
+            fractol->j_im = 0.01;
+        }
+        else if (fractol->fractal > 3)
+            fractol->fractal = 1;
+    }
     draw(fractol);
     return (0);
 }
@@ -31,16 +44,14 @@ int mouse_press(int key, int x, int y, t_fractol *fractol)
 {
     (void)x;
     (void)y;
-    if (key == MOUSE_SCROLL_UP)
+    if (key == 5)
+        fractol->zoom *= 1.17647058823;
+    else if (key == 4)
     {
-        
+        if (fractol->zoom >= 0.001)
+            fractol->zoom *= 0.85;    
     }
-    else if (key == MOUSE_SCROLL_DOWN)
-    {
-        fractol->zoom -= 0.5;
-        fractol->x = 0;
-        fractol->y = 0;
-    }
+    draw(fractol);
     return (0);
 }
 

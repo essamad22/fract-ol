@@ -6,7 +6,7 @@
 /*   By: aakhtab <aakhtab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/12 21:49:11 by aakhtab           #+#    #+#             */
-/*   Updated: 2023/07/27 11:10:06 by aakhtab          ###   ########.fr       */
+/*   Updated: 2023/07/28 14:26:27 by aakhtab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,8 @@ void	draw(t_fractol *f)
                 mandelbrot(&f, &f->data);
             else if (f->fractal == 2)
                 julia(&f, &f->data);
-            // else if (fractal == 3)
-            //     burning_ship(f, data);
+            else if (f->fractal == 3)
+                burning_ship(&f, &f->data);
         }
     }
     mlx_put_image_to_window(f->mlx.mlx, f->mlx.mlx_win, f->data.img, 0, 0);

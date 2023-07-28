@@ -6,7 +6,7 @@
 /*   By: aakhtab <aakhtab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 12:52:24 by aakhtab           #+#    #+#             */
-/*   Updated: 2023/07/27 03:46:10 by aakhtab          ###   ########.fr       */
+/*   Updated: 2023/07/28 15:45:28 by aakhtab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void    mandelbrot(t_fractol **f, t_data *data)
         if (pow((*f)->z.re, 2.0) + pow((*f)->z.im, 2.0) > 4)
             break ;
     }
-    (*f)->color = get_color(i);
+    (*f)->color = get_color(i, (*f));
     if (i == MAX_ITER)
         my_mlx_pixel_put(data, (*f)->x, (*f)->y, 0x000000);
     else

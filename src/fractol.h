@@ -6,7 +6,7 @@
 /*   By: aakhtab <aakhtab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/12 17:40:49 by aakhtab           #+#    #+#             */
-/*   Updated: 2023/07/27 11:30:09 by aakhtab          ###   ########.fr       */
+/*   Updated: 2023/07/28 19:50:35 by aakhtab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,16 +65,21 @@ typedef struct s_fractol
     unsigned int color;
 	float		zoom;
 	int 		test;
+	int 		bits_16;
+	int 		bits_8;
+	int 		bits_0;
+	
 }				t_fractol;
 
 void    		draw(t_fractol *f);
 void			my_mlx_pixel_put(t_data *data, int x, int y, int color);
 void    		mandelbrot(t_fractol **f, t_data *data);
 void    		julia(t_fractol **f, t_data *data);
-unsigned int	get_color(int i);
+unsigned int	get_color(int i, t_fractol *f);
 int 			key_press(int key, t_fractol *fractol);
 int 			mouse_press(int key, int x, int y, t_fractol *fractol);
 float	  		ft_atof(char *str);
 int 			close_window(void);
-// void    burning_ship(t_fractol *f, t_data *data);
+void    		burning_ship(t_fractol **f, t_data *data);
+void    		set_bits(t_fractol *f);
 #endif
