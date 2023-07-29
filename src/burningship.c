@@ -6,7 +6,7 @@
 /*   By: aakhtab <aakhtab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/28 09:04:13 by aakhtab           #+#    #+#             */
-/*   Updated: 2023/07/28 21:58:25 by aakhtab          ###   ########.fr       */
+/*   Updated: 2023/07/28 23:40:03 by aakhtab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,11 @@
 
 void	burning_ship(t_fractol **f, t_data *data)
 {
-	int     i;
-	double  tmp;
+	int		i;
+	double	tmp;
 
-	(*f)->c.re = 1.75 * ((*f)->x - WIDTH / 2) / (WIDTH / 2) / (*f)->zoom;
-	(*f)->c.im = 1.25 * ((*f)->y - HEIGHT / 2) / (HEIGHT / 2) / (*f)->zoom;
+	(*f)->c.re = 2 * ((*f)->x - WIDTH / 2) / (WIDTH / 2) / (*f)->zoom;
+	(*f)->c.im = 1.5 * ((*f)->y - HEIGHT / 2) / (HEIGHT / 2) / (*f)->zoom;
 	(*f)->z.re = 0;
 	(*f)->z.im = 0;
 	i = 0;

@@ -6,7 +6,7 @@
 #    By: aakhtab <aakhtab@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/07 18:48:58 by aakhtab           #+#    #+#              #
-#    Updated: 2023/07/28 17:14:52 by aakhtab          ###   ########.fr        #
+#    Updated: 2023/07/29 18:37:19 by aakhtab          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,19 +26,19 @@ SRCS			=	src/fractol.c src/draw.c src/colors.c \
 					
 OBJS			=	$(SRCS:.c=.o)
 
-CFLAGS			=	-Wall -Wextra -Werror -g -fsanitize=address
+CFLAGS			=	-Wall -Wextra -Werror 
+#-g -fsanitize=address
 
 NAME			=	fractol
 
 LIBFT		= lib/libft.a
 
-MINILIB = -L./minilibx -lmlx -framework OpenGL -framework AppKit
+MINILIB = -lmlx -framework OpenGL -framework AppKit
 
 all:	${NAME}
 
 
 ${NAME}:	$(LIBFT) ${OBJS} header
-			@make -C minilibx
 			@$(CC) $(CFLAGS) $(SRCS) $(MINILIB) lib/libft.a -o $(NAME)
 
 
@@ -61,13 +61,11 @@ header:
 	@printf "$(S1)\n$(RESET)"
 clean:	
 			@make clean -C lib
-			@make clean -C minilibx
 			@rm -f $(OBJS)
 			@printf "$(YELLOW)\r    [OBJECTS CLEANED 🗑️$(RESET)"
 
 fclean:	clean
 			@make fclean -C lib
-			@make clean -C minilibx
 			@rm -f ${NAME}
 			@printf "\r												"
 			@printf "$(RED)\r     [EVERYTHING CLEANED 👌]    \n$(RESET)"
